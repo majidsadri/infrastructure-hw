@@ -24,15 +24,68 @@ For this assignment, you're going to create the infrastructure for an applicatio
 - Either send us the link to your repository (if you make it public) or email us a zipped-up folder.
 
 
-## Instructions:
+# Hello World Broadcast Application
 
-- Build Docker Images:
-cd broadcaster && docker build -t broadcaster .
-cd receiver && docker build -t receiver .
-cd web && docker build -t web .
+This project demonstrates a simple Kafka-based message broadcasting application that consists of three services:
+- **Broadcaster**: Sends "Hello World" messages at random intervals.
+- **Receiver**: Listens for and processes the "Hello World" messages.
+- **Web Interface**: Displays the received messages in real-time using a web browser.
 
-- Run Minikube:
-Start Minikube using the provided script: ./minikube-setup.sh
+The application runs locally using Minikube, Docker, and Kafka for message passing.
 
-- Access the Application:
-Once Minikube starts, visit http://<minikube-ip>:30001 to view the messages.
+## Prerequisites
+
+Make sure you have the following tools installed:
+- Docker
+- Minikube
+- Kubernetes CLI (`kubectl`)
+
+## Instructions
+
+### 1. Build Docker Images
+
+You need to build the Docker images for each service before deploying them to Minikube.
+
+```bash
+# Build the broadcaster image
+cd broadcaster
+docker build -t hello-world-broadcaster .
+
+# Build the receiver image
+cd ../receiver
+docker build -t hello-world-receiver .
+
+# Build the web interface image
+cd ../web
+docker build -t hello-world-web .
+```
+
+## Project Structure
+
+```bash
+hello-world-kafka-project/
+│
+├── broadcaster/                      # Kafka broadcaster service
+│   ├── Dockerfile                     # Dockerfile to build broadcaster image
+│   └── producer.py                    # Code for broadcasting messages
+│
+├── receiver/                         # Kafka receiver service
+│   ├── Dockerfile                     # Dockerfile to build receiver image
+│   └── consumer.py                    # Code for receiving messages
+│
+├── web/                              # Web service for displaying messages
+│   ├── Dockerfile                     # Dockerfile to build web service image
+│   ├── app.py                         # Flask app with WebSocket support
+│   └── templates/                     # HTML templates
+│       └── index.html                 # Web interface for viewing messages
+│
+├── k8s/                              # Kubernetes deployment manifests
+│   ├── kafka-cluster.yaml             # Kafka cluster configuration (Strimzi)
+│   ├── producer-deployment.yaml       # Deployment for the broadcaster service
+│   ├── receiver-deployment.yaml       # Deployment for the receiver service
+│   ├── web-deployment.yaml            # Deployment for the web service
+│   ├── web-service.yaml               # Service to expose the web interface
+│
+├── minikube-setup.sh                 # Script to setup Minikube and deploy services
+├── README.md                         # Project documentation
+```
