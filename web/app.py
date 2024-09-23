@@ -8,12 +8,14 @@ def index():
     return render_template('index.html')
 
 def stream():
-    consumer = KafkaConsumer('hello-world-topic', bootstrap_servers='kafka:9092')
+    # Connect to Kafka and consume messages from the 'hello-world-topic'
+    consumer = KafkaConsumer('hello-world-topic', bootstrap_servers='my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092')
     for message in consumer:
         yield f"data: {message.value.decode('utf-8')}\n\n"
 
 @app.route('/stream')
 def stream_view():
+    # Send streamed messages to the client via Server-Sent Events
     return Response(stream(), mimetype="text/event-stream")
 
 if __name__ == "__main__":

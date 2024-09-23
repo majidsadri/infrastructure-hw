@@ -9,6 +9,7 @@ consumer = KafkaConsumer(
 )
 
 
+
 def receive():
     for message in consumer:
         print(f"Received: {message.value.decode('utf-8')}")
