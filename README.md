@@ -22,3 +22,17 @@ For this assignment, you're going to create the infrastructure for an applicatio
 - Fork this repository on GitHub. Develop a solution on your fork. Extra points for good git hygiene.
 - Include specific instructions in your README about pre-requisites and setup steps. Another engineer should be able to go from zero to running your solution on their local machine.
 - Either send us the link to your repository (if you make it public) or email us a zipped-up folder.
+
+
+## Instructions:
+
+- Build Docker Images:
+cd broadcaster && docker build -t broadcaster .
+cd receiver && docker build -t receiver .
+cd web && docker build -t web .
+
+- Run Minikube:
+Start Minikube using the provided script: ./minikube-setup.sh
+
+- Access the Application:
+Once Minikube starts, visit http://<minikube-ip>:30001 to view the messages.
