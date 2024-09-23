@@ -57,15 +57,15 @@ You need to build the Docker images for each service before deploying them to Mi
 ```bash
 # Build the broadcaster image
 cd broadcaster
-docker build -t hello-world-broadcaster .
+docker build -t broadcaster:latest .
 
 # Build the receiver image
 cd ../receiver
-docker build -t hello-world-receiver .
+docker build -t receiver:latest .
 
 # Build the web interface image
 cd ../web
-docker build -t hello-world-web .
+docker build -t web:latest .
 ```
 
 
