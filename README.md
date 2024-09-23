@@ -67,11 +67,11 @@ hello-world-kafka-project/
 │
 ├── broadcaster/                      # Kafka broadcaster service
 │   ├── Dockerfile                     # Dockerfile to build broadcaster image
-│   └── producer.py                    # Code for broadcasting messages
+│   └── app.py                    # Code for broadcasting messages
 │
 ├── receiver/                         # Kafka receiver service
 │   ├── Dockerfile                     # Dockerfile to build receiver image
-│   └── consumer.py                    # Code for receiving messages
+│   └── app.py                    # Code for receiving messages
 │
 ├── web/                              # Web service for displaying messages
 │   ├── Dockerfile                     # Dockerfile to build web service image
@@ -80,11 +80,10 @@ hello-world-kafka-project/
 │       └── index.html                 # Web interface for viewing messages
 │
 ├── k8s/                              # Kubernetes deployment manifests
-│   ├── kafka-cluster.yaml             # Kafka cluster configuration (Strimzi)
-│   ├── producer-deployment.yaml       # Deployment for the broadcaster service
+│   ├── kafka-deployment.yaml             # Kafka cluster configuration (Strimzi)
+│   ├── broadcaster-deployment.yaml       # Deployment for the broadcaster service
 │   ├── receiver-deployment.yaml       # Deployment for the receiver service
 │   ├── web-deployment.yaml            # Deployment for the web service
-│   ├── web-service.yaml               # Service to expose the web interface
 │
 ├── minikube-setup.sh                 # Script to setup Minikube and deploy services
 ├── README.md                         # Project documentation
