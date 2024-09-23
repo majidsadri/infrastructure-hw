@@ -1,10 +1,12 @@
 from kafka import KafkaConsumer
 
-# consumer = KafkaConsumer('hello-world-topic', bootstrap_servers='kafka:9092')
+# consumer = KafkaConsumer('hello-world-topic', bootstrap_servers='my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092')
 
-# consumer = KafkaConsumer('hello-world-topic', bootstrap_servers='my-cluster-kafka-bootstrap:9092')
-
-consumer = KafkaConsumer('hello-world-topic', bootstrap_servers='my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092')
+consumer = KafkaConsumer(
+    'hello-world-topic',
+    bootstrap_servers='my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092',
+    api_version=(3, 7, 0)  # Set the API version to match your Kafka broker version
+)
 
 
 def receive():

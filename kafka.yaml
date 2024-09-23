@@ -5,17 +5,21 @@ metadata:
   namespace: kafka
 spec:
   kafka:
-    version: 3.2.0
-    replicas: 1
+    version: 3.7.1  # Change version to a supported one
+    replicas: 3
     listeners:
       - name: plain
         port: 9092
         type: internal
         tls: false
+      - name: tls
+        port: 9093
+        type: internal
+        tls: true
     storage:
       type: ephemeral
   zookeeper:
-    replicas: 1
+    replicas: 3
     storage:
       type: ephemeral
   entityOperator:

@@ -42,7 +42,15 @@ Make sure you have the following tools installed:
 
 ## Instructions
 
-### 1. Build Docker Images
+
+### Kafka Cluster
+
+```bash
+kubectl apply -f kafka-cluster.yaml -n kafka
+```
+
+
+### Build Docker Images
 
 You need to build the Docker images for each service before deploying them to Minikube.
 
@@ -58,6 +66,14 @@ docker build -t hello-world-receiver .
 # Build the web interface image
 cd ../web
 docker build -t hello-world-web .
+```
+
+
+## Deploy the Kubernetes Deployment Files
+
+```bash
+
+./minikube-setup.sh
 ```
 
 ## Project Structure
