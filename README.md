@@ -76,6 +76,14 @@ docker build -t hello-world-web .
 ./minikube-setup.sh
 ```
 
+## Run Web console
+
+```bash
+
+kubectl port-forward svc/web-service 5000:500
+```
+
+
 ## Project Structure
 
 ```bash
