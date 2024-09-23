@@ -46,7 +46,7 @@ Make sure you have the following tools installed:
 ### Kafka Cluster
 
 ```bash
-kubectl apply -f kafka-cluster.yaml -n kafka
+kubectl apply -f kafka.yaml -n kafka
 ```
 
 
