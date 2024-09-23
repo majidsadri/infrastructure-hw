@@ -7,10 +7,7 @@
     <h1>Hello World Messages</h1>
     <ul id="messages"></ul>
     <script>
-        // Establish an SSE connection to the /stream endpoint
         const eventSource = new EventSource('/stream');
-        
-        // When a new message is received, add it to the messages list
         eventSource.onmessage = function(event) {
             const newElement = document.createElement("li");
             newElement.innerHTML = event.data;
