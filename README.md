@@ -63,7 +63,7 @@ eval $(minikube docker-env)
 
 ```bash
 
-kubectl port-forward svc/web-service 5000:500
+kubectl port-forward svc/web-service 5000:5000
 ```
 
 
