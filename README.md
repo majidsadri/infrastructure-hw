@@ -22,6 +22,8 @@ Make sure you have the following tools installed:
 
 ### Kafka Cluster
 
+Strimzi is an open-source project that simplifies running Apache Kafka on Kubernetes
+
 ```bash
 helm repo add strimzi https://strimzi.io/charts/
 
