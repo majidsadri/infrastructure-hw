@@ -23,6 +23,10 @@ Make sure you have the following tools installed:
 ### Kafka Cluster
 
 ```bash
+helm repo add strimzi https://strimzi.io/charts/
+
+helm install strimzi-kafka-operator strimzi/strimzi-kafka-operator --namespace kafka --create-namespace
+
 kubectl apply -f kafka.yaml -n kafka
 ```
 
@@ -49,6 +53,8 @@ docker build -t web:latest .
 ## Deploy the Kubernetes Deployment Files
 
 ```bash
+
+eval $(minikube docker-env)
 
 ./minikube-setup.sh
 ```
